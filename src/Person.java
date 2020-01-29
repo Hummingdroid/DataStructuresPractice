@@ -46,7 +46,7 @@ public class Person implements Comparable<Person> {
 				", age=" + age +
 				'}';
 	}
-	
+
 	@Override public int compareTo(Person o) {
 		if(this.id==o.getId())
 			return 0;
@@ -56,3 +56,4 @@ public class Person implements Comparable<Person> {
 			return -1;
 	}
 }
+
