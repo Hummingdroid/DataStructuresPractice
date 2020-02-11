@@ -8,13 +8,21 @@ public  class RouterConnection <N,P> {
 	this.password = password;
 	}
 
-	// Method to send password
+	
 	public P passPasswordToServer(){
 		return password;
 	}
 
-	// Method to send UserName
+
 	public N sendUserName(){
 		return name;
+	}
+
+	public void setName(N name){
+		this.name = name;
+	}
+
+	public void setPassword(P password){
+		this.password = password;
 	}
 }
