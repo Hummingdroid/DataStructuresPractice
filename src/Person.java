@@ -55,5 +55,10 @@ public class Person implements Comparable<Person> {
 		else
 			return -1;
 	}
+
+	public static int count;
+	static {
+		count++;
+	}
 }
 

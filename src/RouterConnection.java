@@ -1,6 +1,7 @@
 public  class RouterConnection <N,P> {
 	N name;
 	P password;
+	N [] nameArray;
 
 	// Constructor builds the Router Object
 	public RouterConnection(N name, P password){
@@ -8,13 +9,12 @@ public  class RouterConnection <N,P> {
 	this.password = password;
 	}
 
-	
-	public P passPasswordToServer(){
+	public P sendPasswordToRouter(){
 		return password;
 	}
 
 
-	public N sendUserName(){
+	public N sendUserNametoRouter(){
 		return name;
 	}
 
