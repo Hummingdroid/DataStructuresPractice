@@ -13,7 +13,6 @@ public  class RouterConnection <N,P> {
 		return password;
 	}
 
-
 	public N sendUserNametoRouter(){
 		return name;
 	}

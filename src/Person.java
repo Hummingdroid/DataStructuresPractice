@@ -6,7 +6,11 @@ public class Person implements Comparable<Person> {
 	private long id;
 
 	public Person(){
+	}
 
+	public Person(String name, int age){
+		this.name = name;
+		this.age = age;
 	}
 
 	public Person(String name, int age, long id){

@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -26,11 +27,11 @@ public class AllStructures {
 		myArrayList3.add(30);
 		myArrayList3.add(40);
 
-		// Copy one ArrayList to another.
+		// Copy one ArrayList to a simple array.
 		Integer [] mynewArry =  new Integer [myArrayList.size()];
 		mynewArry = myArrayList.toArray(mynewArry);
 
-		//Search the arraylist for a specific item
+		//Search the array for a specific item
 		int searchItem = 22;
 		for(int i = 0; i < myArrayList.size(); i++){
 			if (myArrayList.get(i).equals(searchItem)) {
@@ -40,6 +41,11 @@ public class AllStructures {
 				System.out.println("Item not found");
 			}
 		}
+
+		// Copy one ArrayList to a new ArrayList
+		ArrayList<Double> myDoubles = new ArrayList<>(Arrays.asList(2.2,45.0,66.7,100.0));
+		ArrayList<Double> myOtherDouble = new ArrayList<>(myDoubles);
+
 
 		//Sort the Arrrays
 		Collections.sort(myArrayList);
@@ -66,6 +72,26 @@ public class AllStructures {
 		Collections.sort(myArrayList6);
 		Collections.sort(myArrayList7);
 		myArrayList6.retainAll(myArrayList7);
+	}
+
+	public void removeItemsUsingListIterator(){
+		ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(33,5,44,6,7));
+		Iterator iter = intList.iterator();
+
+		// Iterate as as long as there is a next element with a value.
+		while(iter.hasNext()){
+
+			// Get value of the next element
+			Object elmnt = iter.next();
+			if(elmnt.equals(44)){
+				// Remove the element if condition is met
+				iter.remove();
+			}
+		}
+
+		for(Integer x: intList){
+			System.out.println(x);
+		}
 	}
 
 	public void goStrings() {
