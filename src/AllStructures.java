@@ -8,7 +8,7 @@ public class AllStructures {
 
 	}
 
-	public void goArrays() {
+	public void createSimpleArrayAndCopyRangeToNewArray() {
 		// Arrays
 		int[] numArray = new int[20];
 
@@ -16,10 +16,12 @@ public class AllStructures {
 
 		// Copy array from (array, inclusive, last index)
 		int[] myNumbers = Arrays.copyOfRange(numArray2, 0, 10);
+	}
 
+	public void createSimpleArrayFromArrayListAndSearchSimpleArray(){
 		// Arraylist initalizer.
-		ArrayList<Integer> myArrayList = new ArrayList<Integer>(Arrays.asList(22,25,30,50));
-		ArrayList<Integer> myArrayList2 = new ArrayList<Integer>(Arrays.asList(22,25,30,50));
+		ArrayList<Integer> myArrayList = new ArrayList<Integer>(Arrays.asList(22, 25, 30, 50));
+		ArrayList<Integer> myArrayList2 = new ArrayList<Integer>(Arrays.asList(22, 25, 30, 50));
 
 		ArrayList<Integer> myArrayList3 = new ArrayList<>();
 		myArrayList3.add(22);
@@ -27,8 +29,10 @@ public class AllStructures {
 		myArrayList3.add(30);
 		myArrayList3.add(40);
 
-		// Copy one ArrayList to a simple array.
+		// Create an array that is the size of the ArrayList
 		Integer [] mynewArry =  new Integer [myArrayList.size()];
+
+		// Copy items from array to ArrayList
 		mynewArry = myArrayList.toArray(mynewArry);
 
 		//Search the array for a specific item
@@ -42,12 +46,7 @@ public class AllStructures {
 			}
 		}
 
-		// Copy one ArrayList to a new ArrayList
-		ArrayList<Double> myDoubles = new ArrayList<>(Arrays.asList(2.2,45.0,66.7,100.0));
-		ArrayList<Double> myOtherDouble = new ArrayList<>(myDoubles);
-
-
-		//Sort the Arrrays
+		//Sort the Arrays
 		Collections.sort(myArrayList);
 		Collections.sort(myArrayList2);
 		Collections.sort(myArrayList3);
@@ -55,38 +54,74 @@ public class AllStructures {
 		// Compare arraylist for equality.
 		System.out.println(myArrayList.equals(myArrayList2));
 		System.out.println(myArrayList.equals(myArrayList3));
+	}
 
-		// Remove all duplicate items in an arraylist that exist in another arraylist, leaving only non-duplicate items
-		ArrayList myArrayList4 = new ArrayList<>(Arrays.asList(10,20,75, 30,35,40));
-		ArrayList myArrayList5 = new ArrayList<>(Arrays.asList(10,20,30,40,77));
+	public void removeAllDuplicateItemsArrayList() {
+		// Creating ArrayLists and Sort them.
+		ArrayList myArrayList4 = new ArrayList<>(Arrays.asList(10, 20, 75, 30, 35, 40));
+		ArrayList myArrayList5 = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 77));
 		Collections.sort(myArrayList4);
 		Collections.sort(myArrayList5);
+
+		// Remove all duplicate items in an arraylist that exist in another ArrayList, leaving only non-duplicate items
 		myArrayList5.removeAll(myArrayList4);
-		System.out.println(myArrayList4);
-		System.out.println(myArrayList5);
+	}
 
-
+	public void retainAllDuplicates() {
 		// Retain all duplicates in list6 that are in list7
-		ArrayList myArrayList6 = new ArrayList<>(Arrays.asList(77,55,66,88,99));
-		ArrayList myArrayList7 = new ArrayList<>(Arrays.asList(77,50,60,88,99));
+		ArrayList myArrayList6 = new ArrayList<>(Arrays.asList(77, 55, 66, 88, 99));
+		ArrayList myArrayList7 = new ArrayList<>(Arrays.asList(77, 50, 60, 88, 99));
 		Collections.sort(myArrayList6);
 		Collections.sort(myArrayList7);
 		myArrayList6.retainAll(myArrayList7);
+	}
+
+	public void replaceArrayListItem(){
+		ArrayList<String> s1 = new ArrayList<>(Arrays.asList("Jay", "Wilma", "Francene", "Gomez", "Sara"));
+
+		// Find item
+		int index = s1.indexOf("Francene");
+
+		// Remove Item at index of what you were looking for(If you don't arraylist just moves items in front of
+		// index forward and ArrayList grows.
+		s1.remove(index);
+
+		// Add the new Item to the index location and give it a value.
+		s1.add(index, "Jason");
+
+		for(String s: s1){
+			System.out.println(s);
+		}
 	}
 
 	public void removeItemsUsingListIterator(){
 		ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(33,5,44,6,7));
 		Iterator iter = intList.iterator();
 
-		// Iterate as as long as there is a next element with a value.
 		while(iter.hasNext()){
+			// Get what is at next index/node
+			Object nextItem = iter.next();
 
-			// Get value of the next element
-			Object elmnt = iter.next();
-			if(elmnt.equals(44)){
-				// Remove the element if condition is met
+			// If the item at next index/node is the value remove.
+			if(nextItem.equals(44)){
 				iter.remove();
+				break;
 			}
+		}
+
+		// Iternate over entire ArrayList
+		for(Integer x: intList){
+			System.out.println(x);
+		}
+	}
+
+	public void removeItemsInArrayListWithoutIterator(){
+		ArrayList<Integer> intList = new ArrayList<>(Arrays.asList(55,66,33,23,76,88,99,01,23));
+
+		int searchedItem = 76;
+		boolean contains = intList.contains(searchedItem);
+		if(contains){
+			intList.remove(intList.indexOf(searchedItem));
 		}
 
 		for(Integer x: intList){
@@ -280,48 +315,85 @@ public class AllStructures {
 
 
 
-	public void goLinkedLists() {
+	public void getIndexOfItemLinkedList() {
 
 		LinkedList<Person> myLink = new LinkedList<>();
-		Person p1 = new Person("Jason", 42,234567);
-		Person p2 = new Person("Elisa", 24,34577);
-		Person p3 = new Person("Juan", 32,65454898);
+		Person p1 = new Person("Jason", 42, 234567);
+		Person p2 = new Person("Elisa", 24, 34577);
+		Person p3 = new Person("Juan", 32, 65454898);
 		myLink.add(p1);
 		myLink.add(p2);
 		myLink.add(p3);
 
 		// Search and Get index of object searched for in an LinkedList
-		int indexSearched = myLink.indexOf(new Person("Juan", 32,454567));
+		int indexSearched = myLink.indexOf(new Person("Juan", 32, 454567));
 		System.out.println(indexSearched);
+	}
+
+	public void replaceItemAtIndexInLinkedList() {
+		LinkedList<Person> myLink = new LinkedList<>();
+		Person p1 = new Person("Jason", 42, 234567);
+		Person p2 = new Person("Elisa", 24, 34577);
+		Person p3 = new Person("Juan", 32, 65454898);
+		myLink.add(p1);
+		myLink.add(p2);
+		myLink.add(p3);
 
 		// Replace an item at a specific index with an item from a different index.
-		myLink.add(indexSearched, p1);
+		myLink.add(1, p1);
 		System.out.println(myLink);
+	}
+
+	public void findAnItemInAlinkedList() {
 
 		// LinkedList initalizer
-		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22,55903),
-				new Person("Mark", 33,6767), new Person("Luke", 21,2323)));
+		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22, 55903),
+				new Person("Mark", 33, 6767), new Person("Luke", 21, 2323)));
 		System.out.printf("Person list is as follows: %s%n", personList);
 
 		// Find specific index of item in list
-		int locationofPerson = personList.indexOf(new Person("Luke", 21,6538));
+		int locationofPerson = personList.indexOf(new Person("Luke", 21, 6538));
 		System.out.printf("Location of Person index: %d", locationofPerson);
 
+	}
+
+	public void addItemToBeginningAndEndOfLinkedList() {
+		// LinkedList initalizer
+		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22, 55903),
+				new Person("Mark", 33, 6767), new Person("Luke", 21, 2323)));
+
+
 		// Add item to the begining of the list
-		personList.addFirst(new Person("Gomez", 44,5567));
+		personList.addFirst(new Person("Gomez", 44, 5567));
 
 		// Add item to the end of the list
-		personList.addLast(new Person("Michael Scott", 45,3345));
+		personList.addLast(new Person("Michael Scott", 45, 3345));
 
+	}
+
+	public void appendLinkedLists() {
+		// LinkedList initalizer
+		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22, 55903),
+				new Person("Mark", 33, 6767), new Person("Luke", 21, 2323)));
 
 		// Create Second linked list to add to another linked list.
-		LinkedList<Person> personList2 = new LinkedList<>(Arrays.asList(new Person("Toby", 40,123989), new Person("Angela", 35,3444), new Person("Dwight", 38,1287)));
+		LinkedList<Person> personList2 = new LinkedList<>(Arrays.asList(new Person("Toby", 40, 123989), new Person("Angela", 35, 3444), new Person("Dwight", 38, 1287)));
+
+
+		// Adding all items from first list to Second List(the last node)
 		personList.addAll(personList2);
 		System.out.println(personList);
+	}
 
+	public void checkIfLinkedListContainsACertainItem() {
+// LinkedList initalizer
+		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22, 55903),
+				new Person("Mark", 33, 6767), new Person("Luke", 21, 2323)));
+		LinkedList<Person> personList2 = new LinkedList<>(Arrays.asList(new Person("Willow", 22, 55903),
+				new Person("Stark", 33, 6767), new Person("Duke", 41, 2323)));
 
 		// Check if Linked List contains a specific item, returns boolean
-		System.out.println(personList.contains(new Person("Michael Scott", 45,690978098)));
+		System.out.println(personList.contains(new Person("Michael Scott", 45, 690978098)));
 
 		// Return the first item in a list
 		System.out.println(personList.element());
@@ -335,8 +407,8 @@ public class AllStructures {
 		}
 		System.out.println();
 
-		// Push person ontop linked list stack
-		personList2.push(new Person("Chancelor", 300,115678));
+		// Push person on top linked list stack
+		personList2.push(new Person("Chancelor", 300, 115678));
 
 
 		// Look at  last person put on the stack(node zero) but dont remove.
@@ -347,7 +419,14 @@ public class AllStructures {
 		System.out.println(personList2.pop());
 		System.out.println(personList2);
 
-		LinkedList<Person> personList3 = new LinkedList<>(Arrays.asList(new Person("Tony", 40,13456), new Person("Sara", 35,334454), new Person("garheht", 38,2230011)));
+	}
+
+	public void removeFirstOccuranceInLinkedListOfAnItem(){
+		LinkedList<Person> personList3 = new LinkedList<>(Arrays.asList(new Person("Tony", 40,13456),
+				new Person("Sara", 35,334454), new Person("garheht", 38,2230011)));
+
+		System.out.println(personList3);
+		System.out.println("AND NOW Remove First Occurance OF Sara");
 
 		// Remove first occurance of an item in a list.
 		personList3.removeFirstOccurrence(new Person("Sara", 0,334454));
