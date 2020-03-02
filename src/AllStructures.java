@@ -18,7 +18,7 @@ public class AllStructures {
 		int[] myNumbers = Arrays.copyOfRange(numArray2, 0, 10);
 	}
 
-	public void createSimpleArrayFromArrayListAndSearchSimpleArray(){
+	public void createSimpleArrayFromArrayListAndSearchSimpleArray() {
 		// Arraylist initalizer.
 		ArrayList<Integer> myArrayList = new ArrayList<Integer>(Arrays.asList(22, 25, 30, 50));
 		ArrayList<Integer> myArrayList2 = new ArrayList<Integer>(Arrays.asList(22, 25, 30, 50));
@@ -30,18 +30,19 @@ public class AllStructures {
 		myArrayList3.add(40);
 
 		// Create an array that is the size of the ArrayList
-		Integer [] mynewArry =  new Integer [myArrayList.size()];
+		Integer[] mynewArry = new Integer[myArrayList.size()];
 
 		// Copy items from array to ArrayList
 		mynewArry = myArrayList.toArray(mynewArry);
 
 		//Search the array for a specific item
 		int searchItem = 22;
-		for(int i = 0; i < myArrayList.size(); i++){
+		for (int i = 0; i < myArrayList.size(); i++) {
 			if (myArrayList.get(i).equals(searchItem)) {
 				System.out.println(searchItem + " Item found");
 				break;
-			} else {
+			}
+			else {
 				System.out.println("Item not found");
 			}
 		}
@@ -76,7 +77,7 @@ public class AllStructures {
 		myArrayList6.retainAll(myArrayList7);
 	}
 
-	public void replaceArrayListItem(){
+	public void replaceArrayListItem() {
 		ArrayList<String> s1 = new ArrayList<>(Arrays.asList("Jay", "Wilma", "Francene", "Gomez", "Sara"));
 
 		// Find item
@@ -89,42 +90,42 @@ public class AllStructures {
 		// Add the new Item to the index location and give it a value.
 		s1.add(index, "Jason");
 
-		for(String s: s1){
+		for (String s : s1) {
 			System.out.println(s);
 		}
 	}
 
-	public void removeItemsUsingListIterator(){
-		ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(33,5,44,6,7));
+	public void removeItemsUsingListIterator() {
+		ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(33, 5, 44, 6, 7));
 		Iterator iter = intList.iterator();
 
-		while(iter.hasNext()){
+		while (iter.hasNext()) {
 			// Get what is at next index/node
 			Object nextItem = iter.next();
 
 			// If the item at next index/node is the value remove.
-			if(nextItem.equals(44)){
+			if (nextItem.equals(44)) {
 				iter.remove();
 				break;
 			}
 		}
 
 		// Iternate over entire ArrayList
-		for(Integer x: intList){
+		for (Integer x : intList) {
 			System.out.println(x);
 		}
 	}
 
-	public void removeItemsInArrayListWithoutIterator(){
-		ArrayList<Integer> intList = new ArrayList<>(Arrays.asList(55,66,33,23,76,88,99,01,23));
+	public void removeItemsInArrayListWithoutIterator() {
+		ArrayList<Integer> intList = new ArrayList<>(Arrays.asList(55, 66, 33, 23, 76, 88, 99, 01, 23));
 
 		int searchedItem = 76;
 		boolean contains = intList.contains(searchedItem);
-		if(contains){
+		if (contains) {
 			intList.remove(intList.indexOf(searchedItem));
 		}
 
-		for(Integer x: intList){
+		for (Integer x : intList) {
 			System.out.println(x);
 		}
 	}
@@ -153,17 +154,17 @@ public class AllStructures {
 		// Regex delimiter with no limit, will delimit at the regex delimiter infinite times.
 		// Index 0 = Into  Index 1 = the Matrix  Index 2 = here we go
 		String name3 = "Into:the Matrix:here we go";
-		String [] newArray3 = name3.split(":");
-		for(String x : newArray3){
+		String[] newArray3 = name3.split(":");
+		for (String x : newArray3) {
 			System.out.println(x);
 		}
 
 		// Using different Regex as the argument and saves them to the new array.
 		// after I print out the new string with the regex delimiters absent.
 		String crazyWord = "I owe you $5, but you owe me 10?";
-		String [] array4 = crazyWord.split("[$ , ?]");
+		String[] array4 = crazyWord.split("[$ , ?]");
 		String nwString = "";
-		for(String x : array4){
+		for (String x : array4) {
 			nwString += x + " ";
 		}
 		System.out.println(nwString);
@@ -176,16 +177,16 @@ public class AllStructures {
 
 		// Using modulus to get last number in a number.
 		int number1 = 1234;
-		System.out.println(number1%10);
+		System.out.println(number1 % 10);
 
 		// Get the remainder using modulus.
 		int alpha = 22;
-		System.out.println(alpha%11);
+		System.out.println(alpha % 11);
 
 	}
 
 	// Reverse a String
-	public  String reverseString(String inputStr){
+	public String reverseString(String inputStr) {
 		char[] cArray = inputStr.toCharArray();
 		String newString = "";
 
@@ -197,37 +198,33 @@ public class AllStructures {
 
 	public void goExponents() {
 		// Exponential
-		int oneEx = (int)Math.pow(10,2);
+		int oneEx = (int) Math.pow(10, 2);
 		System.out.println(oneEx);
 
 		// Division
 		int first = 300;
 		int second = 10;
-		System.out.println(first/second);
-
+		System.out.println(first / second);
 	}
 
-
-
-
-       // Way to reverse a Number by converting into a String by Integer.toString() and back Integer.parseInt().
-       public int reverseNumber2(int number){
+	// Way to reverse a Number by converting into a String by Integer.toString() and back Integer.parseInt().
+	public int reverseNumber2(int number) {
 		String strNumber = Integer.toString(number);
-		char [] strNumberArray = strNumber.toCharArray();
+		char[] strNumberArray = strNumber.toCharArray();
 
 		String tempNumber = "";
-		for(int i = strNumber.length()-1; i >= 0; i--){
+		for (int i = strNumber.length() - 1; i >= 0; i--) {
 			tempNumber += strNumberArray[i];
 		}
 		int numToReturn = Integer.parseInt(tempNumber);
 		return numToReturn;
-	   }
+	}
 
 
-	public static void swapTwoNumbers(int num1, int num2){
-		num1 = num1+num2; // 30
-		num2 = num1-num2; // 10
-		num1 = num1-num2; // 20
+	public static void swapTwoNumbers(int num1, int num2) {
+		num1 = num1 + num2; // 30
+		num2 = num1 - num2; // 10
+		num1 = num1 - num2; // 20
 		System.out.println(num1);
 		System.out.println(num2);
 	}
@@ -310,11 +307,6 @@ public class AllStructures {
 	}
 
 
-
-
-
-
-
 	public void getIndexOfItemLinkedList() {
 
 		LinkedList<Person> myLink = new LinkedList<>();
@@ -386,7 +378,7 @@ public class AllStructures {
 	}
 
 	public void checkIfLinkedListContainsACertainItem() {
-// LinkedList initalizer
+		// LinkedList initalizer
 		LinkedList<Person> personList = new LinkedList<>(Arrays.asList(new Person("Mathew", 22, 55903),
 				new Person("Mark", 33, 6767), new Person("Luke", 21, 2323)));
 		LinkedList<Person> personList2 = new LinkedList<>(Arrays.asList(new Person("Willow", 22, 55903),
@@ -421,15 +413,15 @@ public class AllStructures {
 
 	}
 
-	public void removeFirstOccuranceInLinkedListOfAnItem(){
-		LinkedList<Person> personList3 = new LinkedList<>(Arrays.asList(new Person("Tony", 40,13456),
-				new Person("Sara", 35,334454), new Person("garheht", 38,2230011)));
+	public void removeFirstOccuranceInLinkedListOfAnItem() {
+		LinkedList<Person> personList3 = new LinkedList<>(Arrays.asList(new Person("Tony", 40, 13456),
+				new Person("Sara", 35, 334454), new Person("garheht", 38, 2230011)));
 
 		System.out.println(personList3);
 		System.out.println("AND NOW Remove First Occurance OF Sara");
 
 		// Remove first occurance of an item in a list.
-		personList3.removeFirstOccurrence(new Person("Sara", 0,334454));
+		personList3.removeFirstOccurrence(new Person("Sara", 0, 334454));
 
 		// Remove first occurrance based upon a searched item.
 		String searchName = "Sara";
@@ -441,7 +433,7 @@ public class AllStructures {
 		}
 
 		// Set a node to a new value in a linked list
-		personList3.set(1, new Person("Fonzie", 23,2230080));
+		personList3.set(1, new Person("Fonzie", 23, 2230080));
 		System.out.println(personList3);
 	}
 
@@ -449,8 +441,8 @@ public class AllStructures {
 
 		/*
 			Priority QUEUE.Is ordered by priority of objects.Can not contain null.
-				Comparator can be used to set the order.Order is natural order.Lease element is first, then second etc..
-			If objects are similar they are polled randomly.Not thread safe.Use PriorityBlockingQueue.O(log(n))
+				Comparator can be used to set the order.Order is natural order.Least element is first, then second etc..
+			If objects are similar they are polled randomly. Not thread safe.Use PriorityBlockingQueue.O(log(n))
 			 Create a Priority Blocking Queue.
 			*/
 
@@ -464,15 +456,23 @@ public class AllStructures {
 				break;
 			}
 		}
+		System.out.println("-------------------------------------------------------------\n");
 
 
 		// Create a comparator
 		Comparator<Person> nameSorter = Comparator.comparing(Person::getId);
 
+		Person p1 = new Person("Jack", 21, 100);
+		Person p2 = new Person("Jill", 33, 15);
+		System.out.println(p1);
+		System.out.println(p2);
+		System.out.println("----------- Before Comparator Orders by ID Number ----------\n");
+
 		// Add Comparator to priority blocking queue which has default size of 10
 		PriorityQueue<Person> personList = new PriorityQueue<Person>(nameSorter);
-		personList.add(new Person("Jack", 21, 55));
-		personList.add(new Person("Jill", 33, 100));
+		personList.add(p1);
+		personList.add(p2);
+
 
 		// Iterate the Priority Queue
 		while (true) {
@@ -480,6 +480,36 @@ public class AllStructures {
 			if (p == null) break;
 			System.out.println(p);
 		}
+	}
+
+	public void doThisHashMapMagic(){
+		HashMap<String, Person> personList = new HashMap<>();
+
+		Person iamFirst = new Person("Jackie", 44, 1345643);
+		Person isecond = new Person("Robbie", 44, 13456443);
+
+		personList.put("1a5kj4lk98aaa", iamFirst);
+		personList.put("22998jhkd89sk", isecond);
+
+		Iterator itr = personList.keySet().iterator();
+
+		while(itr.hasNext()){
+
+			// Get the key
+			Object key= itr.next();
+
+			// Get the value from the key(Value Object must be of same type as stored.
+			// example: Person is a person value, Car is a car value, and Integer is an int value.)
+			Person value = personList.get(key);
+			System.out.printf("The Key is : %s with a Value of %s%n", key,value);
+		}
+
+		// See if list contains certain keys
+		System.out.println(personList.containsKey("1a5kj4lk98aaa"));
+		System.out.println(personList.containsKey(123545645));
+
+		// Return the set of all the keys in a HashMap
+		System.out.println(personList.keySet());
 	}
 }
 
