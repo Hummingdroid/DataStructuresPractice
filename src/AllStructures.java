@@ -510,6 +510,19 @@ public class AllStructures {
 
 		// Return the set of all the keys in a HashMap
 		System.out.println(personList.keySet());
+
+		// Return all the values in the HashMap
+		System.out.println(personList.values());
+
+		// Add values from one map to another map, in this case put list one stuff into list 2
+		HashMap<String, Person> personList2 = new HashMap<>();
+		personList2.putAll(personList);
+		System.out.println(personList2.values());
+
+
+		// This will not work because of different Type of Key Value Pairs than first Collection.
+		//HashMap<Integer, Integer> personList3 = new HashMap<>();
+		//personList3.putAll(personList);
 	}
 }
 
