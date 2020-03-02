@@ -512,17 +512,21 @@ public class AllStructures {
 		System.out.println(personList.keySet());
 
 		// Return all the values in the HashMap
-		System.out.println(personList.values());
+		System.out.printf("List one: %s", personList.values());
 
 		// Add values from one map to another map, in this case put list one stuff into list 2
 		HashMap<String, Person> personList2 = new HashMap<>();
 		personList2.putAll(personList);
-		System.out.println(personList2.values());
+		System.out.printf("\nList two %s\n", personList2.values());
+		System.out.println();
 
 
 		// This will not work because of different Type of Key Value Pairs than first Collection.
 		//HashMap<Integer, Integer> personList3 = new HashMap<>();
 		//personList3.putAll(personList);
+
+		personList2.remove("1a5kj4lk98aaa");
+		System.out.printf("List 2 after removing a jackie by key %s", personList2.values());
 	}
 }
 
