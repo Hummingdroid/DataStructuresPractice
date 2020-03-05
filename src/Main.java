@@ -15,6 +15,6 @@ public class Main {
 //		dataBase.getAllItems();
 		AllStructures a1 = new AllStructures();
 
-		a1.doThisHashMapMagic();
+		a1.goPriorityQueue();
 	}
 }

@@ -438,15 +438,7 @@ public class AllStructures {
 	}
 
 	public void goPriorityQueue() {
-
-		/*
-			Priority QUEUE.Is ordered by priority of objects.Can not contain null.
-				Comparator can be used to set the order.Order is natural order.Least element is first, then second etc..
-			If objects are similar they are polled randomly. Not thread safe.Use PriorityBlockingQueue.O(log(n))
-			 Create a Priority Blocking Queue.
-			*/
-
-
+		// Stored In Natural Order
 		PriorityBlockingQueue<Integer> priorityList = new PriorityBlockingQueue<Integer>(Arrays.asList(9, 8, 7, 6, 5, 44));
 
 		while (true) {
@@ -458,9 +450,9 @@ public class AllStructures {
 		}
 		System.out.println("-------------------------------------------------------------\n");
 
-
-		// Create a comparator
-		Comparator<Person> nameSorter = Comparator.comparing(Person::getId);
+		/*USE PriorityQUEUE WHEN YOU WANT TO STORE INFORMATION IN A SPECIFIC ORDER AFTER IT IS SORTED AND POP,
+		POLL, PEEK a Collection.
+		 */
 
 		Person p1 = new Person("Jack", 21, 100);
 		Person p2 = new Person("Jill", 33, 15);
@@ -468,7 +460,10 @@ public class AllStructures {
 		System.out.println(p2);
 		System.out.println("----------- Before Comparator Orders by ID Number ----------\n");
 
-		// Add Comparator to priority blocking queue which has default size of 10
+		// Create a comparator for the order you want
+		Comparator<Person> nameSorter = Comparator.comparing(Person::getId);
+
+		// Add Comparator to priority queue which has default size of 10
 		PriorityQueue<Person> personList = new PriorityQueue<Person>(nameSorter);
 		personList.add(p1);
 		personList.add(p2);
@@ -483,6 +478,9 @@ public class AllStructures {
 	}
 
 	public void doThisHashMapMagic(){
+
+		// Collection that when filled doesn't keep a specific order. Use when you want to get info from a collection
+		// by key and value.
 		HashMap<String, Person> personList = new HashMap<>();
 
 		Person iamFirst = new Person("Jackie", 44, 1345643);
