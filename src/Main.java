@@ -15,6 +15,6 @@ public class Main {
 //		dataBase.getAllItems();
 		AllStructures a1 = new AllStructures();
 
-		a1.goPriorityQueue();
+		a1.removeAllDuplicateItemsArrayList();
 	}
 }

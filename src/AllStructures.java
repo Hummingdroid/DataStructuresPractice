@@ -35,7 +35,13 @@ public class AllStructures {
 		// Copy items from array to ArrayList
 		mynewArry = myArrayList.toArray(mynewArry);
 
+		//Sort the Arrays
+		Collections.sort(myArrayList);
+		Collections.sort(myArrayList2);
+		Collections.sort(myArrayList3);
+
 		//Search the array for a specific item
+		System.out.println("Search for number 22");
 		int searchItem = 22;
 		for (int i = 0; i < myArrayList.size(); i++) {
 			if (myArrayList.get(i).equals(searchItem)) {
@@ -47,11 +53,6 @@ public class AllStructures {
 			}
 		}
 
-		//Sort the Arrays
-		Collections.sort(myArrayList);
-		Collections.sort(myArrayList2);
-		Collections.sort(myArrayList3);
-
 		// Compare arraylist for equality.
 		System.out.println(myArrayList.equals(myArrayList2));
 		System.out.println(myArrayList.equals(myArrayList3));
@@ -60,12 +61,19 @@ public class AllStructures {
 	public void removeAllDuplicateItemsArrayList() {
 		// Creating ArrayLists and Sort them.
 		ArrayList myArrayList4 = new ArrayList<>(Arrays.asList(10, 20, 75, 30, 35, 40));
-		ArrayList myArrayList5 = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 77));
+		ArrayList myArrayList5 = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 77, 35));
 		Collections.sort(myArrayList4);
 		Collections.sort(myArrayList5);
+		System.out.println("Arrays are sorted first using sort() method");
+		System.out.println("Arraylist4: " + myArrayList4);
+		System.out.println("ArrayList5: " + myArrayList5);
+		System.out.println("------ And After -------");
 
-		// Remove all duplicate items in an arraylist that exist in another ArrayList, leaving only non-duplicate items
+		// Remove all duplicate items in arraylist(5) that exist in another ArrayList(4), leaving only non-duplicate items in arraylist(5)
+		System.out.println("Remove all duplicates in ArrayList5 that also exist in ArrayList4");
 		myArrayList5.removeAll(myArrayList4);
+		System.out.println("Arraylist4: " + myArrayList4);
+		System.out.println("ArrayList5: " + myArrayList5);
 	}
 
 	public void retainAllDuplicates() {
